@@ -1,0 +1,148 @@
+.content-box {
+  background-color: #fff;
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 30px;
+  border-radius: 20px;
+
+
+  box-shadow:
+    0 4px 8px rgba(0, 0, 0, 0.1),
+    0 8px 20px rgba(0, 0, 0, 0.05);
+    
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.content-box:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 6px 12px rgba(0, 0, 0, 0.12),
+    0 10px 24px rgba(0, 0, 0, 0.08);
+}
+
+.content-box h1 {
+  color: #2c2c2c;
+  text-align: center;
+  position: relative;
+
+  text-shadow:
+    1px 1px 1px rgba(0, 0, 0, 0.2),
+    2px 2px 2px rgba(0, 0, 0, 0.15),
+    3px 3px 3px rgba(0, 0, 0, 0.1);
+}
+
+
+.content-box h1::after {
+  content: "";
+  width: 60px;
+  height: 3px;
+  background: #ccc;
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+
+
+
+.CF-box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin: 25px 0 10px;
+}
+
+.CF-box input {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  flex: 1 1 250px;
+  min-width: 200px;
+}
+
+
+.description {
+  text-align: center;
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.chart-container {
+  height: 300px;
+  margin-bottom: 20px;
+}
+
+.verse-text {
+  font-size: 1.2rem;
+  text-align: center;
+  font-weight: 500;
+  color: #2c2c2c;
+  margin-top: 30px;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.2),
+               -1px -1px 2px rgba(255,255,255,0.6);
+}
+.verse-ref {
+  display: block;
+  margin-top: 5px;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #666;
+}
+
+
+
+.CF-box {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  margin: 30px auto;
+  padding: 20px;
+
+
+
+  
+
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.CF-box input[type="text"] {
+  padding: 10px 15px;
+  border: 2px solid #ccc;
+  border-radius: 12px;
+  outline: none;
+  transition: all 0.3s ease;
+  font-size: 16px;
+}
+
+.CF-box input[type="text"]:focus {
+  border-color: #413d62;
+  box-shadow: 0 0 8px rgba(65, 61, 98, 0.3);
+}
+
+.CF-box button {
+  padding: 10px 20px;
+  background-color: #413d62;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.CF-box button:hover {
+  background-color: #5a528a;
+  transform: scale(1.05);
+}
