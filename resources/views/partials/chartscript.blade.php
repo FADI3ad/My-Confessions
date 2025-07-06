@@ -4,22 +4,22 @@
     const myPieChart = new Chart(ctx, {
       type: 'pie',
       data: {
-        labels: ['عدد الاعترافات', 'عدد المخدومين', 'رموز مستخدمة', 'آخر تحديث'],
+        labels: ['All Confessors', 'Birthdays', 'Latecomers'],
         datasets: [{
-          data: [24, 12, 19, 20],
+          data: [24, 12, 19],
           backgroundColor: [
-            '#0051de', // وردي زاهي
+            // تركواز
             '#4BC0C0', // أزرق زاهي
-            '#009ede ', // أصفر ساطع
-            '#6200de'  // تركواز
+            '#0051de', // وردي زاهي
+            '#6200de'   // أصفر ساطع
           ],
           borderColor: '#ffffff',
-          borderWidth: 2
+          borderWidth: 4
         }]
       },
       options: {
         responsive: true,
-        maintainAspectRatio: false, // ده بيخليها تمتد حسب المساحة ا1`1لمتاحة
+        maintainAspectRatio: false,
         plugins: {
           legend: {
             position: 'bottom',
@@ -44,7 +44,7 @@
         },
         layout: {
           padding: {
-            top: 10,
+            top: 50,
             bottom: 10
           }
         }

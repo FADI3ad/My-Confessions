@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\ConfessionController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ThemeController;
 use Illuminate\Support\Facades\Route;
+use Psy\Output\Theme;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,21 +17,39 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
 
-Route::name('theme.')->group(function () {
-    Route::get('index', [ThemeController::class, 'index'])->name('index');
-    Route::get('birthdays', [ThemeController::class, 'birthdays'])->name('birthdays');
-    Route::get('allsereved', [ThemeController::class, 'allsereved'])->name('served.index');
-    Route::get('add-new-served', [ThemeController::class, 'addnewserved'])->name('served.create');
-    Route::get('latecomers', [ThemeController::class, 'latecomers'])->name('latecomers');
+
+// ===============================
+// Public Route - Home Page
+// This is the main landing page of the website.
+// ===============================
+Route::get('/', [ThemeController::class, 'index'])->name('home');
+
+
+
+
+// ===============================
+// Theme-related Routes
+// These routes handle theme-specific pages such as birthdays and latecomers.
+// All routes are prefixed with '/theme' and named with 'theme.'
+// ===============================
+Route::prefix('theme')->name('theme.')->controller(ThemeController::class)->group(function () {
+    Route::get('birthdays', 'birthdays')->name('birthdays');    // /theme/birthdays
+    Route::get('latecomers', 'latecomers')->name('latecomers');  // /theme/latecomers
 });
 
 
 
-Route::post('/served/store', [ThemeController::class, 'test'])->name('served.store');
+
+// Route::name('confession.')->group(function () {
+
+
+//     Route::get('allsereved', [ThemeController::class, 'allsereved'])->name('served.index');
+//     Route::get('add-new-served', [ThemeController::class, 'addnewserved'])->name('served.create');
+// });
+
+
+// Route::post('/served/store', [ConfessionController::class, 'store'])->name('served.store');
 
 
 
@@ -45,3 +65,16 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+
+
+
+
+
+
+
+
+
+
+
+

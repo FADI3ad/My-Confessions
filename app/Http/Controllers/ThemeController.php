@@ -2,14 +2,22 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Confession;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use function PHPSTORM_META\type;
 
 class ThemeController extends Controller
 {
     public function index()
     {
-        return view('index');
+        $verses = json_decode(Storage::get('verses.json'), true);
+        $dayOfYear = now()->dayOfYear;
+        $index = $dayOfYear % count($verses);
+        $verse = $verses[$index];
+        return view('index', compact('verse'));
     }
+
     public function addnewserved()
     {
         return view('Servant.create');
@@ -19,10 +27,17 @@ class ThemeController extends Controller
 
         return view('Servant.index');
     }
+
     public function birthdays()
     {
 
-        return view('birthdays');
+        $Confessions =  Confession::all();
+        foreach ($Confessions as $Confession) {
+
+            dd(($Confession->dateofbirth));
+        }
+
+        return view('birthdays',compact('Confessions'));
     }
     public function Latecomers()
     {

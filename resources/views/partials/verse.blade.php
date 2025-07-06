@@ -1,4 +1,4 @@
 <p class="verse-text">
-    هكَذَا فَلْيَحْسِبْنَا الإِنْسَانُ كَخُدَّامٍ لِلْمَسِيحِ، وَوُكَلَاءَ سَرَائِرِ اللهِ
-    <span class="verse-ref">(كورنثوس الأولى 4:1)</span><br>
+    "{{ $verse['text'] }}"
+    <span class="verse-ref">({{ $verse['book'] }} {{ $verse['chapter'] }}:{{ $verse['verse'] }})</span><br>
 </p>
