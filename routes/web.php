@@ -18,8 +18,6 @@ use Psy\Output\Theme;
 */
 
 
-
-
 // ===============================
 // Public Route - Home Page
 // This is the main landing page of the website.
@@ -41,16 +39,23 @@ Route::prefix('theme')->name('theme.')->controller(ThemeController::class)->grou
 
 
 
+// ===============================
+// Confession Resource Routes
+// These routes handle full CRUD operations for confessions.
+// Automatically provides index, create, store, edit, update, show, destroy
+// All routes are prefixed with '/confessions' and named with 'confessions.'
+// ===============================
+Route::resource('confessions', ConfessionController::class);
 
-// Route::name('confession.')->group(function () {
 
 
-//     Route::get('allsereved', [ThemeController::class, 'allsereved'])->name('served.index');
-//     Route::get('add-new-served', [ThemeController::class, 'addnewserved'])->name('served.create');
-// });
 
 
-// Route::post('/served/store', [ConfessionController::class, 'store'])->name('served.store');
+
+
+
+
+
 
 
 

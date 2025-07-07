@@ -34,19 +34,7 @@
         <div class="card-list" id="userCards">
 
 
-            @foreach ($Confessions as  $Confession)
-                <div class="user-card">
-                    <img src="https://i.imgur.com/U0Zr6zH.png" alt="">
-                    <div class="user-info">
-                        <h6>{{ $Confession->name }}</h6>
-                    </div>
-                    <div class="actions">
-                        <button><i class="fas fa-edit"></i></button>
-                        <button><i class="fas fa-trash-alt text-danger"></i></button>
-                    </div>
-                </div>
 
-            @endforeach
 
 
 

@@ -7,37 +7,60 @@ use Illuminate\Http\Request;
 
 class ConfessionController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     */
+    public function index()
+    {
 
-    public function store(Request $request) {
-
-        // dd($request->all());
-        // $validated = $request->validate([
-        //     'name' => 'required|string|max:255',
-        //     'photo' => 'nullable|string|max:255',
-        //     'dateofbirth' => 'required|date',
-        //     'work' => 'nullable|string|max:255',
-        //     'talent' => 'nullable|string|max:255',
-        //     'Gender' => 'required|in:male,female',
-        //     'Marital_Status' => 'required|in:single,married,divorced,widowed',
-        //     'service' => 'required|in:child,Preparatory,Secondary,Youth,Other Services',
-        //     'Deacon' => 'nullable|boolean',
-        // ]);
-
-
-        Confession::create([
-            'name' => $request->fullname,
-            'photo' => $request->photo,
-            'dateofbirth' => $request->dob,
-            'work' => $request->work,
-            'talent' => $request->talents,
-            'Gender' => $request->gender,
-            'Marital_Status' => $request->status,
-            'service' => $request->service,
-            'Deacon' => $request->Deacon ?? false,
-        ]);
-
+       return view('confession.index');
     }
 
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
+    {
+        return view('confession.create');
+    }
 
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(Request $request)
+    {
+        //
+    }
 
+    /**
+     * Display the specified resource.
+     */
+    public function show(Confession $confession)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(Confession $confession)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, Confession $confession)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(Confession $confession)
+    {
+        //
+    }
 }

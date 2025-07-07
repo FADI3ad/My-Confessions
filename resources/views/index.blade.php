@@ -11,7 +11,7 @@
                 <h1>My Confession 🕊️</h1>
             </div>
 
-            <form action="{{ route('served.store') }}" method="post">
+            <form action="" method="post">
                 @csrf
                 <div class="CF-box">
                     <input type="text" placeholder="CF-Code" name="code" />
@@ -35,28 +35,22 @@
         </div>
 
         <script>
-                const bt = document.getElementById('bt');
-                const Datebox = document.getElementById('Datebox');
-                let  apparent=false;
-                bt.addEventListener('click', () => {
-                    if(apparent){
-                        Datebox.style.display = 'none';
-                        apparent=false;
-                    }
-                    else{
-
-                        Datebox.style.display = 'block';
-                        apparent=true;
-                    }
-                })
-                  const dateInput = document.getElementById("Datebox");
-
-                // الحصول على تاريخ اليوم بصيغة yyyy-mm-dd
-                const today = new Date().toISOString().split('T')[0];
-
-                // تعيين القيمة
-                dateInput.value = today;
-
+            const bt = document.getElementById('bt');
+            const Datebox = document.getElementById('Datebox');
+            let  apparent=false;
+            bt.addEventListener('click', () => {
+                if(apparent){
+                    Datebox.style.display = 'none';
+                    apparent=false;
+                }
+                else{
+                    Datebox.style.display = 'block';
+                    apparent=true;
+                }
+            })
+            const dateInput = document.getElementById("Datebox");
+            const today = new Date().toISOString().split('T')[0];
+            dateInput.value = today;
         </script>
 
     </main>

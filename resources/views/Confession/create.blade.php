@@ -5,7 +5,7 @@
 @section('content')
 <main>
     <div class="form-container">
-        <form action="{{ route('served.store') }}" method="POST" enctype="multipart/form-data">
+        <form action="" method="POST" enctype="multipart/form-data">
             @csrf
             <h2>Confessor Registration 🙋‍♂️</h2>
 

@@ -31,13 +31,8 @@ class ThemeController extends Controller
     public function birthdays()
     {
 
-        $Confessions =  Confession::all();
-        foreach ($Confessions as $Confession) {
 
-            dd(($Confession->dateofbirth));
-        }
-
-        return view('birthdays',compact('Confessions'));
+        return view('birthdays');
     }
     public function Latecomers()
     {
