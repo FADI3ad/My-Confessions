@@ -5,15 +5,16 @@
 @section('content')
 <main>
     <div class="form-container">
-        <form action="" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('confessions.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <h2>Confessor Registration 🙋‍♂️</h2>
 
             <!-- البيانات الشخصية -->
             <div class="form-group">
                 <label for="fullname">Full Name</label>
-                <input type="text" id="fullname" name="fullname" class="form-control" placeholder="First Middle Last" required />
+                <input type="text" id="fullname" name="fullname" class="form-control" placeholder="First Middle Last"  />
             </div>
+
 
             <div class="form-row">
                 <div class="form-group col-md-6">
@@ -34,7 +35,7 @@
             <!-- التواصل والعنوان -->
             <div class="form-group">
                 <label for="phone">Phone Number</label>
-                <input type="tel" id="phone" name="phone" class="form-control" placeholder="e.g. 01012345678" required>
+                <input type="tel" id="phone" name="phone_number" class="form-control" placeholder="e.g. 01012345678" required>
             </div>
 
 
@@ -48,7 +49,7 @@
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="status">Marital Status</label>
-                    <select id="status" name="status" class="form-control" required>
+                    <select id="status" name="marital_status" class="form-control" required>
                         <option value="">-- Select Status --</option>
                         <option value="single">Single</option>
                         <option value="married">Married</option>
@@ -73,7 +74,7 @@
 
             <div class="form-group">
                 <label for="service">Service Type</label>
-                <select id="service" name="service" class="form-control" required>
+                <select id="service" name="service_type" class="form-control" required>
                     <option value="">-- Select Service --</option>
                     <option value="child">Children</option>
                     <option value="Preparatory">Preparatory</option>
@@ -84,19 +85,28 @@
             </div>
 
             <div class="form-group form-check">
-                <input type="checkbox" class="form-check-input" id="deacon" name="deacon">
+                <input type="hidden" name="is_deacon" value="0">
+                <input type="checkbox" class="form-check-input" id="deacon" name="is_deacon" value="1">
                 <label class="form-check-label" for="deacon">Is a Deacon?</label>
             </div>
-
             <!-- رفع الصورة -->
             <div class="form-group">
                 <label for="photo">Upload Photo</label>
                 <input type="file" id="photo" name="photo" class="form-control-file" accept="image/*">
             </div>
-
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
             <!-- زر الإرسال -->
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
+
     </div>
 </main>
 @endsection

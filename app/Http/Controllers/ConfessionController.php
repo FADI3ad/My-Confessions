@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Carbon\Carbon;
+use App\Http\Requests\StoreUserRequest;
 use App\Models\Confession;
 use Illuminate\Http\Request;
 
@@ -13,7 +14,8 @@ class ConfessionController extends Controller
     public function index()
     {
 
-       return view('confession.index');
+        $confessions = Confession::all();
+        return view('confession.index' , compact('confessions'));
     }
 
     /**
@@ -27,9 +29,15 @@ class ConfessionController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreUserRequest $request)
     {
-        //
+        $request->validated();
+        $dt = Carbon::create(date('Y-m-d'));
+        $data = $request->all();
+        $data['lastvisit'] = $dt->toDateTimeString();
+        $data['nextvisit'] = $dt->addDays(40)->toDateTimeString();
+        Confession::create($data);
+
     }
 
     /**
