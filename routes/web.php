@@ -35,6 +35,8 @@ Route::get('/', [ThemeController::class, 'index'])->name('home');
 Route::prefix('theme')->name('theme.')->controller(ThemeController::class)->group(function () {
     Route::get('birthdays', 'birthdays')->name('birthdays');    // /theme/birthdays
     Route::get('latecomers', 'latecomers')->name('latecomers');  // /theme/latecomers
+    Route::get('test', 'test')->name('test');    // /theme/allserved
+
 });
 
 
@@ -46,7 +48,6 @@ Route::prefix('theme')->name('theme.')->controller(ThemeController::class)->grou
 // All routes are prefixed with '/confessions' and named with 'confessions.'
 // ===============================
 Route::resource('confessions', ConfessionController::class);
-
 
 
 

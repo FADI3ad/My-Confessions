@@ -5,127 +5,81 @@
 
 
 @section('content')
-        <main class="pb-5">
-        <div class="container mt-4">
-            <h2 class="mb-3 mb-md-0 text-center fw-bold text-dark">Latecomers 🕒</h2>
-            <div class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center mb-3 animate-fade-up">
-                <div class="d-flex justify-content-between w-100">
-                    <span id="confessorsCount" class="badge bg-primary text-white fs-5 px-4 py-2 rounded-pill shadow-sm">
-                        TOTAL : 0
-                    </span>
-                    <button id="filterToggleBtn" class="btn btn-primary d-md-none">
-                        <i class="fas fa-filter"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
+<main>
 
-        <div class="container">
-           <form id="filterForm" class="p-3 p-md-4 rounded-4 shadow-sm animate-fade-up bg-white mb-4">
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-6 g-3 align-items-end">
 
-        <!-- Search -->
+    <x-page-header title="Latecomers 🕒" :total="0" />
+
+
+    <!-- Filter Form -->
+    <x-filter-form>
+        <!-- Service Type -->
         <div class="col">
-            <label for="searchInput" class="form-label fw-semibold">🔍 Search</label>
-            <input type="text" class="form-control search-input" id="searchInput" name="search" placeholder="e.g. John">
-        </div>
-
-        <!-- Status -->
-        <div class="col">
-            <label for="statusFilter" class="form-label fw-semibold">🟢 Status</label>
-            <select class="form-select" id="statusFilter" name="status">
-                <option value="all">All</option>
-                <option value="active">Active</option>
-                <option value="offline">Offline</option>
+            <label for="statusFilter" class="custom-filter-label">📘 Service Type</label>
+            <select name="status" class="form-select custom-filter-select" id="statusFilter">
+                <option value="all" {{ request('status') == 'all' ? 'selected' : '' }}>All</option>
+                <option value="child" {{ request('status') == 'child' ? 'selected' : '' }}>Children</option>
+                <option value="Preparatory" {{ request('status') == 'Preparatory' ? 'selected' : '' }}>Preparatory</option>
+                <option value="Secondary" {{ request('status') == 'Secondary' ? 'selected' : '' }}>Secondary</option>
+                <option value="Youth" {{ request('status') == 'Youth' ? 'selected' : '' }}>Youth</option>
+                <option value="Adult" {{ request('status') == 'Adult' ? 'selected' : '' }}>Adult</option>
             </select>
         </div>
 
-        <!-- Group -->
+        <!-- Gender -->
         <div class="col">
-            <label for="groupFilter" class="form-label fw-semibold">👥 Group</label>
-            <select class="form-select" id="groupFilter" name="group">
-                <option value="all">All</option>
-                <option value="choir">Choir</option>
-                <option value="scouts">Scouts</option>
-                <option value="media">Media</option>
+            <label for="groupFilter" class="custom-filter-label">👤 Gender</label>
+            <select class="form-select custom-filter-select" id="groupFilter" name="group">
+                <option value="all" {{ request('group') == 'all' ? 'selected' : '' }}>All</option>
+                <option value="male" {{ request('group') == 'male' ? 'selected' : '' }}>Male</option>
+                <option value="female" {{ request('group') == 'female' ? 'selected' : '' }}>Female</option>
             </select>
         </div>
 
-        <!-- Month -->
+        <!-- Marital Status -->
         <div class="col">
-            <label for="monthFilter" class="form-label fw-semibold">📅 Month</label>
-            <select class="form-select" id="monthFilter" name="month">
-                <option value="all">All</option>
-                @for($i = 1; $i <= 12; $i++)
-                    <option value="{{ $i }}">{{ \Carbon\Carbon::create()->month($i)->format('F') }}</option>
-                @endfor
+            <label for="monthFilter" class="custom-filter-label">💍 Marital Status</label>
+            <select class="form-select custom-filter-select" id="monthFilter" name="month">
+                <option value="all" {{ request('month') == 'all' ? 'selected' : '' }}>All</option>
+                <option value="single" {{ request('month') == 'single' ? 'selected' : '' }}>Single</option>
+                <option value="married" {{ request('month') == 'married' ? 'selected' : '' }}>Married</option>
+                <option value="divorced" {{ request('month') == 'divorced' ? 'selected' : '' }}>Divorced</option>
+                <option value="widowed" {{ request('month') == 'widowed' ? 'selected' : '' }}>Widowed</option>
             </select>
         </div>
 
         <!-- Age -->
         <div class="col">
-            <label for="ageRange" class="form-label fw-semibold">🎂 Age</label>
-            <select class="form-select" id="ageRange" name="age_range">
-                <option value="all">All</option>
-                <option value="child">Under 18</option>
-                <option value="young">18-30</option>
-                <option value="adult">31-50</option>
-                <option value="senior">50+</option>
+            <label for="ageRange" class="custom-filter-label">🎂 Age</label>
+            <select class="form-select custom-filter-select" id="ageRange" name="age_range">
+                <option value="all" {{ request('age_range') == 'all' ? 'selected' : '' }}>All</option>
+                <option value="child" {{ request('age_range') == 'child' ? 'selected' : '' }}>Under 18</option>
+                <option value="young" {{ request('age_range') == 'young' ? 'selected' : '' }}>18-30</option>
+                <option value="adult" {{ request('age_range') == 'adult' ? 'selected' : '' }}>31-50</option>
+                <option value="senior" {{ request('age_range') == 'senior' ? 'selected' : '' }}>50+</option>
             </select>
         </div>
 
-        <!-- Buttons -->
-        <div class="col d-flex gap-2">
-            <button type="submit" class="btn btn-primary w-100">
-                <i class="fas fa-filter me-1 d-none d-md-inline"></i>
-                <span class="d-none d-md-inline">Filter</span>
-                <span class="d-inline d-md-none"><i class="fas fa-check"></i></span>
-            </button>
-            <button type="reset" class="btn btn-outline-secondary w-100">
-                <i class="fas fa-times"></i>
-            </button>
+        <!-- Is Deacon -->
+        <div class="col">
+            <label for="deaconFilter" class="custom-filter-label">⛪ Is a Deacon?</label>
+            <select class="form-select custom-filter-select" id="deaconFilter" name="is_deacon">
+                <option value="all" {{ request('is_deacon') == 'all' ? 'selected' : '' }}>All</option>
+                <option value="1" {{ request('is_deacon') == '1' ? 'selected' : '' }}>Yes</option>
+                <option value="0" {{ request('is_deacon') == '0' ? 'selected' : '' }}>No</option>
+            </select>
         </div>
+    </x-filter-form>
+
+
+
+    <div class="card-list" id="userCards">
+
+        @foreach ($confessions as $confession)
+            <x-user-card :photo="$confession->photo" :name="$confession->fullname" :phone="$confession->phone_number" :dob="$confession->dob" />
+        @endforeach
+
     </div>
-</form>
 
-        </div>
-
-        <div class="container">
-            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3 g-md-4" id="userCards">
-                <!-- User Card 1 -->
-                <div class="col m-2" >
-                    <div class="user-card h-100">
-                        <div class="d-flex align-items-center w-100">
-                            <img src="https://i.imgur.com/U0Zr6zH.png" alt="Profile" class="flex-shrink-0">
-                            <div class="user-info flex-grow-1 ms-3">
-                                <h6 class="mb-1">Jane Cooper</h6>
-                                <small class="text-muted">June 15</small>
-                            </div>
-                        </div>
-                        <div class="actions mt-2 mt-md-0">
-                            <button class="btn btn-sm btn-outline-primary"><i class="fas fa-edit"></i></button>
-                            <button class="btn btn-sm btn-outline-danger"><i class="fas fa-trash-alt"></i></button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- User Card 2 -->
-                <div class="col m-2" >
-                    <div class="user-card h-100">
-                        <div class="d-flex align-items-center w-100">
-                            <img src="https://i.imgur.com/1X8zWbF.png" alt="Profile" class="flex-shrink-0">
-                            <div class="user-info flex-grow-1 ms-3">
-                                <h6 class="mb-1">Wade Warren</h6>
-                                <small class="text-muted">July 22</small>
-                            </div>
-                        </div>
-                        <div class="actions mt-2 mt-md-0">
-                            <button class="btn btn-sm btn-outline-primary"><i class="fas fa-edit"></i></button>
-                            <button class="btn btn-sm btn-outline-danger"><i class="fas fa-trash-alt"></i></button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </main>
+</main>
 @endsection

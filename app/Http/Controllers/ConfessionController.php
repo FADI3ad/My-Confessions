@@ -36,7 +36,13 @@ class ConfessionController extends Controller
         $data = $request->all();
         $data['lastvisit'] = $dt->toDateTimeString();
         $data['nextvisit'] = $dt->addDays(40)->toDateTimeString();
+        if ($request->hasFile('photo')) {
+        $path = $request->file('photo')->store('photos', 'public');
+        $data['photo'] = $path; // تخزين مسار الصورة في قاعدة البيانات
+        }
         Confession::create($data);
+
+        return to_route('confessions.index');
 
     }
 
