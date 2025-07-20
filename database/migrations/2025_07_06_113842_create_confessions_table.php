@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('confessions', function (Blueprint $table) {
             $table->id();
+            $table->string('slug')->unique();
             $table->string('fullname');
             $table->string('photo')->nullable();
             $table->date('dob');

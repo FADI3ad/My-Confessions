@@ -54,7 +54,9 @@ Route::resource('confessions', ConfessionController::class);
 
 
 
-
+Route::get('/t', function () {
+    return view('confession.show');
+});
 
 
 

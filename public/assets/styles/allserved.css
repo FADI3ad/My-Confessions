@@ -28,24 +28,28 @@
 }
 
 .user-card img {
-    width: 80px;
-    height: 80px;
+    width: 115px;
+    height: 115px;
     object-fit: cover;
     border-radius: 50%;
     border: 2px solid #dee2e6;
     margin-bottom: 1rem;
 }
-
 /* ====== Info & Actions ====== */
-.user-info h6 {
+.user-info h5 {
     font-weight: 700;
-    font-size: 1rem;
+
     margin-bottom: 0.25rem;
+    color: #212529;
+}
+.name{
+    font-size: 1.6rem;
+    font-weight: 900;
+
     color: #212529;
 }
 
 .user-info small {
-    font-size: 0.85rem;
     color: #6c757d;
 }
 
@@ -109,10 +113,30 @@
     }
 
     .user-card img {
-        width: 60px;
-        height: 60px;
+        width: 100px;
+        height: 100px;
     }
+    .name{
+    font-size: 1.3rem;
+    font-weight: 900;
+    color: #212529;
+    }
+    .phone{
+        font-size: 0.9rem;
+        font-weight: 600;
+
+    }
+    .date{
+        font-size: 0.7rem;
+        font-weight: 600;
+
+    }
+
+
+
 }
+
+
     .custom-filter-label {
         font-weight: 600;
         margin-bottom: 0.5rem;

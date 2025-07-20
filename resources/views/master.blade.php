@@ -5,7 +5,7 @@
 
     <body>
 
-        @include('partials.header')
+        @include('partials.navbar')
         <div class="all-code-container ">
 
             @yield('content')
@@ -14,7 +14,7 @@
 
         @include('partials.scripts')
 
-        @yield('chartscripts')
+        @yield('indexcripts')
 
     </body>
 </html>

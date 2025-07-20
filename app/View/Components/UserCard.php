@@ -12,13 +12,17 @@ class UserCard extends Component
     public $name;
     public $phone;
     public $dob;
+    public $slug;
 
-    public function __construct($photo, $name, $phone, $dob)
+    public $gender;
+    public function __construct($photo, $name, $phone, $dob, $slug,$gender)
     {
         $this->photo = $photo;
         $this->name = $name;
         $this->phone = $phone;
         $this->dob = $dob;
+        $this->slug = $slug;
+        $this->gender = $gender;
     }
 
     public function render()

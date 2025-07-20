@@ -1,5 +1,5 @@
 <div class="container mt-4">
-    <h2 class="mb-3 mb-md-0 text-center fw-bold text-dark">{{ $title }}</h2>
+    <h2 class="mb-3 mb-md-0 text-center fw-bold text-dark" class="title">{{ $title }}</h2>
 
     <div class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center mb-3 animate-fade-up">
         <div class="d-flex justify-content-between w-100">

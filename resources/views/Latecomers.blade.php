@@ -75,11 +75,23 @@
 
     <div class="card-list" id="userCards">
 
-        @foreach ($confessions as $confession)
-            <x-user-card :photo="$confession->photo" :name="$confession->fullname" :phone="$confession->phone_number" :dob="$confession->dob" />
-        @endforeach
+    @foreach ($confessions as $confession)
+        @php
+            $photoUrl = asset($confession->photo);
+        @endphp
+        <x-user-card
+
+            :photo="$photoUrl"
+            :name="$confession->fullname"
+            :phone="$confession->phone_number"
+            :dob="$confession->dob"
+            :slug="$confession->slug"
+            :gender="$confession->gender"
+        />
+    @endforeach
 
     </div>
 
 </main>
+@include('partials.filter_responseve_script')
 @endsection

@@ -29,38 +29,45 @@ class ConfessionController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreUserRequest $request)
+    public function store(Request $request)
     {
-        $request->validated();
+        // لو عندك Form Request خاص للتحقق، استخدمه هنا بدل Request
+
         $dt = Carbon::create(date('Y-m-d'));
         $data = $request->all();
         $data['lastvisit'] = $dt->toDateTimeString();
         $data['nextvisit'] = $dt->addDays(40)->toDateTimeString();
+
+        // تخزين الصورة إن وُجدت
         if ($request->hasFile('photo')) {
-        $path = $request->file('photo')->store('photos', 'public');
-        $data['photo'] = $path; // تخزين مسار الصورة في قاعدة البيانات
+            $file = $request->file('photo');
+            $filename = time() . '.' . $file->getClientOriginalExtension();
+            $file->move(public_path('uploads'), $filename);
+            $data['photo'] = 'uploads/' . $filename; // هنا بنضيف الصورة لقاعدة البيانات
         }
+
         Confession::create($data);
 
         return to_route('confessions.index');
-
     }
-
     /**
      * Display the specified resource.
      */
-    public function show(Confession $confession)
+    public function show($slug)
     {
-        //
+        $confession = Confession::where('slug', $slug)->firstOrFail();
+        return view('confession.show', compact('confession'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Confession $confession)
-    {
-        //
-    }
+    // public function edit(Confession $confession)
+    // {
+    //     $confession = Confession::where('slug', $confession->slug)->firstOrFail();
+    //     return view('confession.edit', compact('confession'));
+
+    // }
 
     /**
      * Update the specified resource in storage.
@@ -72,9 +79,12 @@ class ConfessionController extends Controller
 
     /**
      * Remove the specified resource from storage.
-     */
-    public function destroy(Confession $confession)
+    */
+    public function destroy($slug)
     {
-        //
+        $confession = Confession::where('slug', $slug)->firstOrFail();
+        $confession->delete();
+        return to_route('confessions.index');
     }
+
 }

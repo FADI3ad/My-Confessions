@@ -1,19 +1,31 @@
 <?php
 
 namespace App\Models;
+use Spatie\Sluggable\HasSlug;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
+use Spatie\Sluggable\SlugOptions;
 
 class Confession extends Model
 {
     use HasFactory;
+    use HasSlug;
 
     protected $guarded = [];
 
 
 
+    public function getSlugOptions() : SlugOptions
+    {
+        return SlugOptions::create()
+            ->generateSlugsFrom('fullname')
+            ->saveSlugsTo('slug');
+    }
 
+    public function getRouteKeyName() {
+        return 'slug';
+    }
     public static function scopeLatecomers($query) {
         return $query->where('nextvisit', '<', date('Y-m-d'));
     }

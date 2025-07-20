@@ -13,11 +13,15 @@ class ThemeController extends Controller
 {
     public function index()
     {
+        //verses of the day
         $verses = json_decode(Storage::get('verses.json'), true);
         $dayOfYear = now()->dayOfYear;
         $index = $dayOfYear % count($verses);
         $verse = $verses[$index];
-        return view('index', compact('verse'));
+
+
+
+        return view('index', data: compact('verse'));
     }
 
 
