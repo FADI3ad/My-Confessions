@@ -1,97 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap');
+
 :root {
-    --primary-color: #2c3e50;
-    --secondary-color: #3498db;
-    --accent-color: #e74c3c;
-    --light-color: #f8f9fa;
-    --dark-color: #212529;
+  --primary-color: #1e1e2f;
+  --secondary-color: #00bcd4;
+  --accent-color: #ff4081;
+  --light-color: #f9f9f9;
+  --dark-color: #2c2c38;
 }
+
 
 
 .profile-card {
-    max-width: 600px;
-    margin: 0 auto;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
+  max-width: 700px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  animation: fadeInUp 0.6s ease-out;
 }
 
 .profile-header {
-    padding: 1.5rem;
-    background: var(--primary-color);
-    color: white;
-    text-align: center;
-    position: relative;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: white;
+  text-align: center;
+  padding: 2rem;
 }
 
-.profile-badge {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    background: var(--accent-color);
-    padding: 0.25rem 0.75rem;
-    border-radius: 20px;
-    font-size: 0.75rem;
-    font-weight: bold;
+.profile-header h2 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.profile-header p {
+  font-size: 1rem;
+  color: #e0e0e0;
 }
 
 .profile-content {
-    display: flex;
-    padding: 1rem;
-    gap: 1.5rem;
+  display: flex;
+  gap: 1.5rem;
+  padding: 2rem;
+  flex-wrap: wrap;
 }
 
 .profile-image {
-    flex: 0 0 100px;
+  flex: 0 0 100px;
 }
 
 .profile-image img {
-    width: 100%;
-    border-radius: 6px;
-    aspect-ratio: 1/1;
-    object-fit: cover;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--secondary-color);
 }
 
 .profile-info {
-    flex: 1;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.75rem;
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1rem;
 }
 
 .info-item {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 0.9rem;
-}
-
-.info-icon {
-    color: var(--secondary-color);
-    width: 20px;
-    text-align: center;
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  padding: 0.75rem;
+  text-align: center;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
 }
 
 .info-label {
-    font-weight: 500;
-    color: var(--primary-color);
-    min-width: 80px;
+  font-size: 0.8rem;
+  color: #888;
+  display: block;
+  margin-bottom: 0.25rem;
 }
 
 @media (max-width: 500px) {
-    .profile-content {
+  .profile-content {
     flex-direction: column;
-    gap: 1rem;
-    }
+    align-items: center;
+  }
 
-    .profile-image {
-    align-self: center;
-    max-width: 120px;
-    }
+  .profile-image {
+    margin-bottom: 1rem;
+  }
 
-    .profile-info {
+  .profile-info {
     grid-template-columns: 1fr;
-    }
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

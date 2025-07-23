@@ -4,27 +4,35 @@
 @section('title', 'Home')
 @section('home-active', 'active')
 @section('content')
-    
+
     <!-- Centered Content -->
     <main class="centered-section">
         <div class="background-priest-top-left">
             <img src="{{ asset('images/logoo.png') }}" alt="Priest Image">
         </div>
 
+        {{-- <div class="background-priest-top-right">
+            <img src="{{ asset('images/u.png') }}" alt="Priest Image">
+        </div> --}}
+
 
         <div class="content-box">
             <div class="head text-center">
-                <h1 style="margin-top:30px ">My <br> Confession 🕊️</h1>
+                <h1 style="margin-top:30px ">My<br>Confession🕊️</h1>
             </div>
 
-            <form action="" method="post">
+            <div class="underline-divider"></div>
+            <form action="{{ route('test') }}" method="post">
                 @csrf
                 <div class="CF-box">
                     <input type="text" placeholder="CF-Code" name="code" />
 
-                    <span style="font-size: 28px; cursor: pointer;" id="bt">📅</span>
+                    {{-- <span style="font-size: 12px; color: green; cursor: pointer;">➕</span> --}}
+                    <span style="font-size: 18px; cursor: pointer;" id="bt">📅</span>
+
 
                 </div>
+
 
                 <div class="CF-box" style="max-width: 300px" >
                     <input type="date" placeholder="CF-Code" style="display: none" id="Datebox" name="date"/>

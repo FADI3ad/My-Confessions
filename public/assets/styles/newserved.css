@@ -3,43 +3,42 @@ h2 {
   color: #2c2c2c;
   text-align: center;
   position: relative;
-
   text-shadow:
     1px 1px 1px rgba(0, 0, 0, 0.2),
     2px 2px 2px rgba(0, 0, 0, 0.15),
     3px 3px 3px rgba(0, 0, 0, 0.1);
 }
-  .form-container {
-      max-width: 800px;
-      margin: 40px auto;
-      padding: 30px;
-      background-color: #fff;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      border-radius: 10px;
-    }
+.form-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    border-radius: 10px;
+}
 
-    .form-container h2 {
-      text-align: center;
-      margin-bottom: 30px;
-      font-weight: 600;
-    }
+.form-container h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: 600;
+}
 
+.form-group label {
+    font-weight: 500;
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    font-weight: 600;
+}
+
+
+
+@media (max-width: 576px) {
     .form-group label {
-      font-weight: 500;
+    font-size: 14px;
     }
-
-    button[type="submit"] {
-      width: 100%;
-      padding: 10px;
-      font-weight: 600;
-    }
-
-
-
-    @media (max-width: 576px) {
-      .form-group label {
-        font-size: 14px;
-      }
-    }
+}
 
 

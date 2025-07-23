@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('slug')->unique();
             $table->string('fullname');
             $table->string('photo')->nullable();
+            $table->string('confession_code');
             $table->date('dob');
             $table->enum('gender', ['male', 'female']);
             $table->string('phone_number')->nullable();

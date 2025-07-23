@@ -137,23 +137,23 @@
 }
 
 
-    .custom-filter-label {
-        font-weight: 600;
-        margin-bottom: 0.5rem;
-        display: block;
-        color: #333;
-    }
+.custom-filter-label {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    display: block;
+    color: #333;
+}
 
-    .custom-filter-select {
-        padding: 0.75rem 1rem;
-        font-size: 1rem;
-        border: 2px solid #dee2e6;
-        border-radius: 0.5rem;
-        transition: border-color 0.3s, box-shadow 0.3s;
-    }
+.custom-filter-select {
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    border: 2px solid #dee2e6;
+    border-radius: 0.5rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
 
-    .custom-filter-select:focus {
-        border-color: #0d6efd;
-        box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
-        outline: none;
-    }
+.custom-filter-select:focus {
+    border-color: #0d6efd;
+    box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+    outline: none;
+}

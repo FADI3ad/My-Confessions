@@ -23,12 +23,12 @@
 
             <!-- Buttons -->
             <div class="col d-flex gap-2">
-                <button type="submit" class="btn btn-primary w-100">
+                <button type="submit" class="btn btn-primary w-100 m-2">
                     <i class="fas fa-filter me-1 d-none d-md-inline"></i>
                     <span class="d-none d-md-inline">Filter</span>
                     <span class="d-inline d-md-none"><i class="fas fa-check"></i></span>
                 </button>
-                <button type="reset" class="btn btn-outline-secondary w-100">
+                <button type="reset" class="btn btn-outline-secondary w-100 m-2">
                     <i class="fas fa-times"></i>
                 </button>
             </div>

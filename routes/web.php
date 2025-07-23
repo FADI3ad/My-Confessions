@@ -51,12 +51,9 @@ Route::resource('confessions', ConfessionController::class);
 
 
 
+Route::post('test', [ThemeController::class, 'test'])->name('test');
 
 
-
-Route::get('/t', function () {
-    return view('confession.show');
-});
 
 
 
